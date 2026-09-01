@@ -59,7 +59,7 @@ screen = pygame.display.set_mode((CELL_WIDTH*CELLS_PER_ROW,CELL_HEIGHT*ROWS_PER_
 clock = pygame.time.Clock()
 running= True
 
-move_delay = 100
+move_delay = 180
 last_move = pygame.time.get_ticks()
 max_fps=60
 
@@ -67,7 +67,7 @@ max_fps=60
 
 snake_body = [[CELLS_PER_ROW//2,ROWS_PER_SCREEN//2]]
 apple_arr = []
-
+last_direction:Direction = None
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -84,12 +84,19 @@ while running:
 
         if keys[pygame.K_w]:
             running = update_pos_arr(Direction.UP,snake_body,apple_arr)
+            last_direction = Direction.UP;
         elif keys[pygame.K_s]:
             running = update_pos_arr(Direction.DOWN,snake_body,apple_arr)
+            last_direction = Direction.DOWN;
         elif keys[pygame.K_a]:
             running = update_pos_arr(Direction.LEFT,snake_body,apple_arr)
+            last_direction = Direction.LEFT;
         elif keys[pygame.K_d]:
             running = update_pos_arr(Direction.RIGHT,snake_body,apple_arr)
+            last_direction = Direction.RIGHT;
+        else:
+            if last_direction != None:
+                running = update_pos_arr(last_direction,snake_body,apple_arr)
         last_move = now
 
     #print(snake_body)
