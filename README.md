@@ -4,12 +4,21 @@ A Python implementation of the classic Snake game, built with Pygame and develop
 The project starts with a manually controlled Snake and will gradually evolve into an AI agent capable of learning how to play the game.
 
 
+## Current Progress
+
+- [x] Basic Snake environment
+- [x] Implementation of Genetic Algorithm
+- [ ] Neural network implementation
+- [ ] Reinforcement learning agent
+- [ ] Training loop
+- [ ] Model evaluation
+- [ ] Visualization
+- [ ] Documentation
 
 # Technologies
-*to add*
+- Python
+- PyGame
 
-# Feats 
-*to add*
 
 # Author
 Emilia Morawska
